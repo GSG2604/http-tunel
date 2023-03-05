@@ -4,40 +4,33 @@ import requests
 import base64
 
 url = "http://localhost:5000"
+#url = "https://tunnelme.onrender.com"
 
 host = "0.0.0.0"
 port = 9999
 
 def forward_to_tunnel(source, uid):
-    while True:
-        try:
-            string = source.recv(65000)
-        except:
-            string = b""
-        if string:
-            data = base64.b64encode(string).decode()
-            r = requests.post(f"{url}/connections/{uid}", data={"data": data})
-            if not r.status_code == 200:
+    def generator():
+        while True:
+            try:
+                string = source.recv(65000)
+            except:
+                string = b""
+            if string:
+                data = base64.b64encode(string).decode()
+                yield (data+"\n").encode()
+                
+            else:
                 source.shutdown(socket.SHUT_RD)
-                r = requests.delete(f"{url}/connections/{uid}")
                 break
-            
-        else:
-            source.shutdown(socket.SHUT_RD)
-            r = requests.delete(f"{url}/connections/{uid}")
-            break
+    r = requests.post(f"{url}/connections/{uid}", data=generator())
 
 def tunnel_to_forward(source, uid):
-    while True:
-        r = requests.get(f"{url}/connections/{uid}")
-        if r.status_code == 200:
-            data = base64.b64decode(r.text)
-            source.sendall(data)
-        elif r.status_code == 201:
-            pass
-        else:
-            source.close()
-            break
+    r = requests.get(f"{url}/connections/{uid}", stream=True)
+    for text in r.iter_lines():
+        data = base64.b64decode(text)
+        source.sendall(data)
+    source.close()
 
 def main():
     sv_sock = socket.socket()
