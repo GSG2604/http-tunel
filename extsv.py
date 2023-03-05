@@ -1,4 +1,4 @@
-from flask import Flask, request, abort
+from flask import Flask, request, stream_with_context, Response
 from threading import Thread
 import base64
 from collections import deque
@@ -16,6 +16,31 @@ def sock(host):
     remote.connect((host[0], host[1]))
     print("Connecting to", host)
     return remote
+
+@stream_with_context
+def handle_get(uid):
+    while True:
+        try:
+            data = connections[uid]["sock"].recv(MLEN)
+        except:
+            data = b""
+        if data:
+            yield base64.b64encode(data).decode()+"\r"
+        else:
+            break
+
+@stream_with_context
+def handle_post(uid):
+    while True:
+        try:
+            data = request.stream.readline()
+        except:
+            data = b""
+        if data:
+            connections[uid]["sock"].sendall(base64.b64decode(data))
+        else:
+            break
+
 
 def proxy(uid):
     print("proxy started")
@@ -43,35 +68,22 @@ def make_conn():
     host = data["host"].split(":")
     host[1] = int(host[1])
 
-    connections[uid] = {"sock": sock(host),
-                        "queue": deque()}
-    
-    Thread(target=proxy, args=[uid], daemon=True).start()
+    connections[uid] = {"sock": sock(host),}
 
     return uid
 
-@app.route("/connections/<uid>", methods=["GET", "POST", "DELETE"])
+@app.route("/connections/<uid>", methods=["GET", "POST"])
 def connection(uid):
     if not uid in connections.keys():
         return "NOT FOUND", 404
     
     if request.method == "POST":
-        if "data" in request.form.keys():
-            data = base64.b64decode(request.form["data"])
-            connections[uid]["sock"].sendall(data)
+        handle_post(uid)
 
         return "OK", 200
     
     elif request.method == "GET":
-        if not len(connections[uid]["queue"]) == 0:
-            return connections[uid]["queue"].popleft()
-        else:
-            return "NO DATA", 201
+        return Response(handle_get(uid))
         
-    else:
-        del connections[uid]
-        return "OK", 200
-
 if __name__ == "__main__":
     app.run()
-    
