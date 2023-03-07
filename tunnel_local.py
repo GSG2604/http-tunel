@@ -10,20 +10,17 @@ host = "0.0.0.0"
 port = 9999
 
 def forward_to_tunnel(source, uid):
-    def generator():
-        while True:
-            try:
-                string = source.recv(65000)
-            except:
-                string = b""
-            if string:
-                data = base64.b64encode(string).decode()
-                yield (data+"\n").encode()
-                
-            else:
-                source.shutdown(socket.SHUT_RD)
-                break
-    r = requests.post(f"{url}/connections/{uid}", data=generator())
+    while True:
+        try:
+            string = source.recv(65000)
+        except:
+            string = b""
+        if string:
+            data = base64.b64encode(string).decode()
+            r = requests.post(f"{url}/connections/{uid}", data=data)
+        else:
+            source.shutdown(socket.SHUT_RD)
+            break
 
 def tunnel_to_forward(source, uid):
     r = requests.get(f"{url}/connections/{uid}", stream=True)
