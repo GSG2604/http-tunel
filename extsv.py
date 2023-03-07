@@ -31,15 +31,8 @@ def handle_get(uid):
 
 @stream_with_context
 def handle_post(uid):
-    while True:
-        try:
-            data = request.stream.readline()
-        except:
-            data = b""
-        if data:
-            connections[uid]["sock"].sendall(base64.b64decode(data))
-        else:
-            break
+    data = request.data
+    connections[uid]["sock"].sendall(base64.b64decode(data))
 
 
 def proxy(uid):
