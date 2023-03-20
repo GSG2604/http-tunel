@@ -4,12 +4,13 @@ import base64
 from collections import deque
 import socket
 from uuid import uuid4
+import traceback
 
 MLEN = 65000
 
 app = Flask(__name__)
 
-connections = {}
+connections: dict = {}
 
 def sock(host):
     remote = socket.socket()
@@ -27,12 +28,19 @@ def handle_get(uid):
         if data:
             yield base64.b64encode(data).decode()+"\r"
         else:
+            del connections[uid]
             break
 
 @stream_with_context
 def handle_post(uid):
     data = request.data
-    connections[uid]["sock"].sendall(base64.b64decode(data))
+    try:
+        connections[uid]["sock"].sendall(base64.b64decode(data))
+    except Exception as e:
+        del connections[uid]
+        traceback.print_exc()
+        raise e
+        
 
 
 def proxy(uid):
@@ -61,11 +69,12 @@ def make_conn():
     host = data["host"].split(":")
     host[1] = int(host[1])
 
+    
     connections[uid] = {"sock": sock(host),}
 
     return uid
 
-@app.route("/connections/<uid>", methods=["GET", "POST"])
+@app.route("/connections/<uid>", methods=["GET", "POST", "DELETE"])
 def connection(uid):
     if not uid in connections.keys():
         return "NOT FOUND", 404
@@ -77,6 +86,14 @@ def connection(uid):
     
     elif request.method == "GET":
         return Response(handle_get(uid))
+    
+    elif request.method == "DELETE":
+        if uid in connections.keys():
+            del connections[uid]
+            return "OK", 200
+        else:
+            return "NOT FOUND", 404
         
 if __name__ == "__main__":
     app.run()
+    

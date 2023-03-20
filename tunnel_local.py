@@ -4,7 +4,7 @@ import requests
 import base64
 
 url = "http://localhost:5000"
-#url = "https://tunnelme.onrender.com"
+#url = "https://gsg.alwaysdata.net"
 
 host = "0.0.0.0"
 port = 9999
@@ -17,17 +17,29 @@ def forward_to_tunnel(source, uid):
             string = b""
         if string:
             data = base64.b64encode(string).decode()
-            r = requests.post(f"{url}/connections/{uid}", data=data)
+            try:
+                r = requests.post(f"{url}/connections/{uid}", data=data)
+                r.raise_for_status()
+            except:
+                source.shutdown(socket.SHUT_RD)
+                requests.delete(f"{url}/connections/{uid}")
+                break
         else:
             source.shutdown(socket.SHUT_RD)
+            requests.delete(f"{url}/connections/{uid}")
             break
 
 def tunnel_to_forward(source, uid):
     r = requests.get(f"{url}/connections/{uid}", stream=True)
-    for text in r.iter_lines():
-        data = base64.b64decode(text)
-        source.sendall(data)
-    source.close()
+    try:
+        for text in r.iter_lines():
+            data = base64.b64decode(text)
+            source.sendall(data)
+        source.shutdown(socket.SHUT_WR)
+        requests.delete(f"{url}/connections/{uid}")
+    except:
+        source.shutdown(socket.SHUT_WR)
+        requests.delete(f"{url}/connections/{uid}")
 
 def main():
     sv_sock = socket.socket()
