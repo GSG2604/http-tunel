@@ -2,44 +2,62 @@ from threading import Thread
 import socket
 import requests
 import base64
+import traceback
+import datetime
+import os
+
+today = datetime.date.today().isoformat()
+
+
+if not os.path.exists("logs"):
+    os.mkdir("logs")
+def log(message):
+    with open(f"logs/LOG {today}.txt", "a") as f:
+        f.write(
+            f"{datetime.datetime.today().isoformat()}:\n{message}\n"
+        )
 
 url = "http://localhost:5000"
-#url = "https://gsg.alwaysdata.net"
+url = "https://gsg.alwaysdata.net"
 
 host = "0.0.0.0"
 port = 9999
+
+session = requests.Session()
 
 def forward_to_tunnel(source, uid):
     while True:
         try:
             string = source.recv(65000)
         except:
+            log(traceback.format_exc())
             string = b""
         if string:
             data = base64.b64encode(string).decode()
             try:
-                r = requests.post(f"{url}/connections/{uid}", data=data)
+                r = session.post(f"{url}/connections/{uid}", data=data)
                 r.raise_for_status()
             except:
                 source.shutdown(socket.SHUT_RD)
-                requests.delete(f"{url}/connections/{uid}")
+                session.delete(f"{url}/connections/{uid}")
                 break
         else:
             source.shutdown(socket.SHUT_RD)
-            requests.delete(f"{url}/connections/{uid}")
+            session.delete(f"{url}/connections/{uid}")
             break
 
 def tunnel_to_forward(source, uid):
-    r = requests.get(f"{url}/connections/{uid}", stream=True)
+    r = session.get(f"{url}/connections/{uid}", stream=True)
     try:
         for text in r.iter_lines():
             data = base64.b64decode(text)
             source.sendall(data)
         source.shutdown(socket.SHUT_WR)
-        requests.delete(f"{url}/connections/{uid}")
+        session.delete(f"{url}/connections/{uid}")
     except:
+        log(traceback.format_exc())
         source.shutdown(socket.SHUT_WR)
-        requests.delete(f"{url}/connections/{uid}")
+        session.delete(f"{url}/connections/{uid}")
 
 def main():
     sv_sock = socket.socket()
@@ -58,7 +76,7 @@ def main():
         print("-->", l1)
         client.sendall(f"{http} 200 OK \r\n\r\n".encode())
 
-        r = requests.post(f"{url}/connections", data={"host": rhost})
+        r = session.post(f"{url}/connections", data={"host": rhost})
         if r.status_code == 200:
             Thread(target=forward_to_tunnel, args=[client, r.text], daemon=True).start()
             Thread(target=tunnel_to_forward, args=[client, r.text], daemon=True).start()
