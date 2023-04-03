@@ -17,11 +17,11 @@ def log(message):
             f"{datetime.datetime.today().isoformat()}:\n{message}\n"
         )
 
-url = "http://localhost:5000"
+#url = "http://localhost:5000"
 url = "https://gsg.alwaysdata.net"
 
-host = "0.0.0.0"
-port = 9999
+host = input("Insert your host: ")
+port = int(input("Now the port: "))
 
 session = requests.Session()
 
