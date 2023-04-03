@@ -67,7 +67,15 @@ def main():
 
     while True:
         client = sv_sock.accept()[0]
-        l1 = client.recv(1024).decode()
+        l1 = client.recv(1024)
+        while True:
+            try:
+                l1 = l1.decode()
+                break
+            except UnicodeDecodeError:
+                l1 += client.recv(1)
+
+        
         if not l1:
             print("Empty call")
             continue
