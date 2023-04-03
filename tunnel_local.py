@@ -81,6 +81,39 @@ class MainwindowProxy(QDialog):
     def __init__(self):
         super(MainwindowProxy, self).__init__()
         uic.loadUi(os.getcwd() + "\window.ui", self)
+        self.texto = ""
+
+    @threaded
+    def service(self):
+        print("Aqui toy")
+        sv_sock = socket.socket()
+        sv_sock.bind((host, port))
+        sv_sock.listen(5)
+        self.imprimir(f"Server on {host}:{port}")
+
+        while True:
+            client = sv_sock.accept()[0]
+            l1 = client.recv(1024).decode()
+            if not l1:
+                self.imprimir("Empty call")
+                continue
+            l1 = l1.splitlines()[0].strip("\r")
+            verv, rhost, http = l1.split()
+            self.imprimir("-->", l1)
+            client.sendall(f"{http} 200 OK \r\n\r\n".encode())
+            r = session.proxies = globalUser
+            r = session.post(f"{url}/connections", data={"host": rhost})
+            if r.status_code == 200:
+                Thread(target=forward_to_tunnel, args=[client, r.text], daemon=True).start()
+                Thread(target=tunnel_to_forward, args=[client, r.text], daemon=True).start()
+            else:
+                self.imprimir(r.status_code, r.text)
+                client.close()
+
+    def imprimir(self, *args):
+        tempText = " ".join([str(x) for x in args])
+        self.texto += f"{tempText} \n"
+        self.textEdit.setText(self.texto)
 
     
 
