@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>sesion</class>
+ <widget class="QDialog" name="sesion">
+  <property name="enabled">
+   <bool>true</bool>
+  </property>
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>368</width>
+    <height>153</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Datos necesarios</string>
+  </property>
+  <property name="windowIcon">
+   <iconset>
+    <normaloff>../../Users/lcisn/Downloads/cropped-logo_grande_blancopng.png</normaloff>../../Users/lcisn/Downloads/cropped-logo_grande_blancopng.png</iconset>
+  </property>
+  <property name="styleSheet">
+   <string notr="true">QDialog {
+	border-radius: 30px;
+	background-color: rgb(0, 0, 43)
+
+}
+
+QLineEdit {
+	border: 2px solid rgb(37,39,48);
+	border-radius: 8px;
+	color: #FFF;
+	padding-left: 10px;
+	padding-right: 10px;
+	background-color: rgb(34,36,44);
+}
+
+QLineEdit:hover {
+	border: 2px solid rgb(48,50,62);
+}
+
+QLineEdit:focus {
+	border: 2px solid rgb(85,170,255);
+	background-color: rgb(43,45,56);
+}
+
+QLabel {
+	color:rgb(132, 132, 132)
+}
+
+QPushButton {
+	border: 2px solid rgb(37,39,48);
+	border-radius: 8px;
+	color: #FFF;
+	padding-left: 10px;
+	padding-right: 10px;
+	background-color: rgb(34,36,44);
+}</string>
+  </property>
+  <widget class="QWidget" name="layoutWidget">
+   <property name="geometry">
+    <rect>
+     <x>10</x>
+     <y>10</y>
+     <width>341</width>
+     <height>101</height>
+    </rect>
+   </property>
+   <layout class="QGridLayout" name="gridLayout">
+    <item row="0" column="0" colspan="4">
+     <widget class="QLabel" name="label_5">
+      <property name="text">
+       <string>Introduzca los datos necesarios para crear el servidor local</string>
+      </property>
+     </widget>
+    </item>
+    <item row="2" column="0" colspan="2">
+     <widget class="QLabel" name="label_2">
+      <property name="minimumSize">
+       <size>
+        <width>90</width>
+        <height>0</height>
+       </size>
+      </property>
+      <property name="layoutDirection">
+       <enum>Qt::RightToLeft</enum>
+      </property>
+      <property name="autoFillBackground">
+       <bool>false</bool>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">QLabel {	
+	color:rgb(132, 132, 132);
+	background-color: rgb(0, 0, 43)}</string>
+      </property>
+      <property name="text">
+       <string>Puerto: </string>
+      </property>
+     </widget>
+    </item>
+    <item row="1" column="0" colspan="2">
+     <widget class="QLabel" name="label">
+      <property name="text">
+       <string>Servidor proxy: </string>
+      </property>
+     </widget>
+    </item>
+    <item row="2" column="2">
+     <widget class="QLineEdit" name="portLine"/>
+    </item>
+    <item row="1" column="2" colspan="2">
+     <widget class="QLineEdit" name="proxyLine"/>
+    </item>
+   </layout>
+  </widget>
+  <widget class="QPushButton" name="login">
+   <property name="geometry">
+    <rect>
+     <x>124</x>
+     <y>120</y>
+     <width>111</width>
+     <height>20</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Crear servidor</string>
+   </property>
+  </widget>
+ </widget>
+ <resources/>
+ <connections>
+  <connection>
+   <sender>login</sender>
+   <signal>clicked()</signal>
+   <receiver>sesion</receiver>
+   <slot>close()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>276</x>
+     <y>129</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>347</x>
+     <y>84</y>
+    </hint>
+   </hints>
+  </connection>
+ </connections>
+</ui>

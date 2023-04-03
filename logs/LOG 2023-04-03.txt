@@ -1,0 +1,559 @@
+2023-04-03T18:47:34.940325:
+Traceback (most recent call last):
+  File "C:\Users\lcisn\AppData\Local\Programs\Python\Python39\lib\site-packages\urllib3\response.py", line 700, in _update_chunk_length
+    self.chunk_left = int(line, 16)
+ValueError: invalid literal for int() with base 16: b''
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\lcisn\AppData\Local\Programs\Python\Python39\lib\site-packages\urllib3\response.py", line 441, in _error_catcher
+    yield
+  File "C:\Users\lcisn\AppData\Local\Programs\Python\Python39\lib\site-packages\urllib3\response.py", line 767, in read_chunked
+    self._update_chunk_length()
+  File "C:\Users\lcisn\AppData\Local\Programs\Python\Python39\lib\site-packages\urllib3\response.py", line 704, in _update_chunk_length
+    raise InvalidChunkLength(self, line)
+urllib3.exceptions.InvalidChunkLength: InvalidChunkLength(got length b'', 0 bytes read)
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\lcisn\AppData\Local\Programs\Python\Python39\lib\site-packages\requests\models.py", line 760, in generate
+    for chunk in self.raw.stream(chunk_size, decode_content=True):
+  File "C:\Users\lcisn\AppData\Local\Programs\Python\Python39\lib\site-packages\urllib3\response.py", line 575, in stream
+    for line in self.read_chunked(amt, decode_content=decode_content):
+  File "C:\Users\lcisn\AppData\Local\Programs\Python\Python39\lib\site-packages\urllib3\response.py", line 796, in read_chunked
+    self._original_response.close()
+  File "C:\Users\lcisn\AppData\Local\Programs\Python\Python39\lib\contextlib.py", line 135, in __exit__
+    self.gen.throw(type, value, traceback)
+  File "C:\Users\lcisn\AppData\Local\Programs\Python\Python39\lib\site-packages\urllib3\response.py", line 458, in _error_catcher
+    raise ProtocolError("Connection broken: %r" % e, e)
+urllib3.exceptions.ProtocolError: ("Connection broken: InvalidChunkLength(got length b'', 0 bytes read)", InvalidChunkLength(got length b'', 0 bytes read))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "c:\git\http-tunel\tunnel_local.py", line 161, in tunnel_to_forward
+    for text in r.iter_lines():
+  File "C:\Users\lcisn\AppData\Local\Programs\Python\Python39\lib\site-packages\requests\models.py", line 804, in iter_lines
+    for chunk in self.iter_content(chunk_size=chunk_size, decode_unicode=decode_unicode):
+  File "C:\Users\lcisn\AppData\Local\Programs\Python\Python39\lib\site-packages\requests\models.py", line 763, in generate
+    raise ChunkedEncodingError(e)
+requests.exceptions.ChunkedEncodingError: ("Connection broken: InvalidChunkLength(got length b'', 0 bytes read)", InvalidChunkLength(got length b'', 0 bytes read))
+
+2023-04-03T18:47:35.035562:
+Traceback (most recent call last):
+  File "C:\Users\lcisn\AppData\Local\Programs\Python\Python39\lib\site-packages\urllib3\response.py", line 700, in _update_chunk_length
+    self.chunk_left = int(line, 16)
+ValueError: invalid literal for int() with base 16: b''
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\lcisn\AppData\Local\Programs\Python\Python39\lib\site-packages\urllib3\response.py", line 441, in _error_catcher
+    yield
+  File "C:\Users\lcisn\AppData\Local\Programs\Python\Python39\lib\site-packages\urllib3\response.py", line 767, in read_chunked
+    self._update_chunk_length()
+  File "C:\Users\lcisn\AppData\Local\Programs\Python\Python39\lib\site-packages\urllib3\response.py", line 704, in _update_chunk_length
+    raise InvalidChunkLength(self, line)
+urllib3.exceptions.InvalidChunkLength: InvalidChunkLength(got length b'', 0 bytes read)
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\lcisn\AppData\Local\Programs\Python\Python39\lib\site-packages\requests\models.py", line 760, in generate
+    for chunk in self.raw.stream(chunk_size, decode_content=True):
+  File "C:\Users\lcisn\AppData\Local\Programs\Python\Python39\lib\site-packages\urllib3\response.py", line 575, in stream
+    for line in self.read_chunked(amt, decode_content=decode_content):
+  File "C:\Users\lcisn\AppData\Local\Programs\Python\Python39\lib\site-packages\urllib3\response.py", line 796, in read_chunked
+    self._original_response.close()
+  File "C:\Users\lcisn\AppData\Local\Programs\Python\Python39\lib\contextlib.py", line 135, in __exit__
+    self.gen.throw(type, value, traceback)
+  File "C:\Users\lcisn\AppData\Local\Programs\Python\Python39\lib\site-packages\urllib3\response.py", line 458, in _error_catcher
+    raise ProtocolError("Connection broken: %r" % e, e)
+urllib3.exceptions.ProtocolError: ("Connection broken: InvalidChunkLength(got length b'', 0 bytes read)", InvalidChunkLength(got length b'', 0 bytes read))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "c:\git\http-tunel\tunnel_local.py", line 161, in tunnel_to_forward
+    for text in r.iter_lines():
+  File "C:\Users\lcisn\AppData\Local\Programs\Python\Python39\lib\site-packages\requests\models.py", line 804, in iter_lines
+    for chunk in self.iter_content(chunk_size=chunk_size, decode_unicode=decode_unicode):
+  File "C:\Users\lcisn\AppData\Local\Programs\Python\Python39\lib\site-packages\requests\models.py", line 763, in generate
+    raise ChunkedEncodingError(e)
+requests.exceptions.ChunkedEncodingError: ("Connection broken: InvalidChunkLength(got length b'', 0 bytes read)", InvalidChunkLength(got length b'', 0 bytes read))
+
+2023-04-03T18:47:35.363641:
+Traceback (most recent call last):
+  File "C:\Users\lcisn\AppData\Local\Programs\Python\Python39\lib\site-packages\urllib3\response.py", line 700, in _update_chunk_length
+    self.chunk_left = int(line, 16)
+ValueError: invalid literal for int() with base 16: b''
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\lcisn\AppData\Local\Programs\Python\Python39\lib\site-packages\urllib3\response.py", line 441, in _error_catcher
+    yield
+  File "C:\Users\lcisn\AppData\Local\Programs\Python\Python39\lib\site-packages\urllib3\response.py", line 767, in read_chunked
+    self._update_chunk_length()
+  File "C:\Users\lcisn\AppData\Local\Programs\Python\Python39\lib\site-packages\urllib3\response.py", line 704, in _update_chunk_length
+    raise InvalidChunkLength(self, line)
+urllib3.exceptions.InvalidChunkLength: InvalidChunkLength(got length b'', 0 bytes read)
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\lcisn\AppData\Local\Programs\Python\Python39\lib\site-packages\requests\models.py", line 760, in generate
+    for chunk in self.raw.stream(chunk_size, decode_content=True):
+  File "C:\Users\lcisn\AppData\Local\Programs\Python\Python39\lib\site-packages\urllib3\response.py", line 575, in stream
+    for line in self.read_chunked(amt, decode_content=decode_content):
+  File "C:\Users\lcisn\AppData\Local\Programs\Python\Python39\lib\site-packages\urllib3\response.py", line 796, in read_chunked
+    self._original_response.close()
+  File "C:\Users\lcisn\AppData\Local\Programs\Python\Python39\lib\contextlib.py", line 135, in __exit__
+    self.gen.throw(type, value, traceback)
+  File "C:\Users\lcisn\AppData\Local\Programs\Python\Python39\lib\site-packages\urllib3\response.py", line 458, in _error_catcher
+    raise ProtocolError("Connection broken: %r" % e, e)
+urllib3.exceptions.ProtocolError: ("Connection broken: InvalidChunkLength(got length b'', 0 bytes read)", InvalidChunkLength(got length b'', 0 bytes read))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "c:\git\http-tunel\tunnel_local.py", line 161, in tunnel_to_forward
+    for text in r.iter_lines():
+  File "C:\Users\lcisn\AppData\Local\Programs\Python\Python39\lib\site-packages\requests\models.py", line 804, in iter_lines
+    for chunk in self.iter_content(chunk_size=chunk_size, decode_unicode=decode_unicode):
+  File "C:\Users\lcisn\AppData\Local\Programs\Python\Python39\lib\site-packages\requests\models.py", line 763, in generate
+    raise ChunkedEncodingError(e)
+requests.exceptions.ChunkedEncodingError: ("Connection broken: InvalidChunkLength(got length b'', 0 bytes read)", InvalidChunkLength(got length b'', 0 bytes read))
+
+2023-04-03T18:47:36.742284:
+Traceback (most recent call last):
+  File "C:\Users\lcisn\AppData\Local\Programs\Python\Python39\lib\site-packages\urllib3\response.py", line 700, in _update_chunk_length
+    self.chunk_left = int(line, 16)
+ValueError: invalid literal for int() with base 16: b''
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\lcisn\AppData\Local\Programs\Python\Python39\lib\site-packages\urllib3\response.py", line 441, in _error_catcher
+    yield
+  File "C:\Users\lcisn\AppData\Local\Programs\Python\Python39\lib\site-packages\urllib3\response.py", line 767, in read_chunked
+    self._update_chunk_length()
+  File "C:\Users\lcisn\AppData\Local\Programs\Python\Python39\lib\site-packages\urllib3\response.py", line 704, in _update_chunk_length
+    raise InvalidChunkLength(self, line)
+urllib3.exceptions.InvalidChunkLength: InvalidChunkLength(got length b'', 0 bytes read)
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\lcisn\AppData\Local\Programs\Python\Python39\lib\site-packages\requests\models.py", line 760, in generate
+    for chunk in self.raw.stream(chunk_size, decode_content=True):
+  File "C:\Users\lcisn\AppData\Local\Programs\Python\Python39\lib\site-packages\urllib3\response.py", line 575, in stream
+    for line in self.read_chunked(amt, decode_content=decode_content):
+  File "C:\Users\lcisn\AppData\Local\Programs\Python\Python39\lib\site-packages\urllib3\response.py", line 796, in read_chunked
+    self._original_response.close()
+  File "C:\Users\lcisn\AppData\Local\Programs\Python\Python39\lib\contextlib.py", line 135, in __exit__
+    self.gen.throw(type, value, traceback)
+  File "C:\Users\lcisn\AppData\Local\Programs\Python\Python39\lib\site-packages\urllib3\response.py", line 458, in _error_catcher
+    raise ProtocolError("Connection broken: %r" % e, e)
+urllib3.exceptions.ProtocolError: ("Connection broken: InvalidChunkLength(got length b'', 0 bytes read)", InvalidChunkLength(got length b'', 0 bytes read))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "c:\git\http-tunel\tunnel_local.py", line 161, in tunnel_to_forward
+    for text in r.iter_lines():
+  File "C:\Users\lcisn\AppData\Local\Programs\Python\Python39\lib\site-packages\requests\models.py", line 804, in iter_lines
+    for chunk in self.iter_content(chunk_size=chunk_size, decode_unicode=decode_unicode):
+  File "C:\Users\lcisn\AppData\Local\Programs\Python\Python39\lib\site-packages\requests\models.py", line 763, in generate
+    raise ChunkedEncodingError(e)
+requests.exceptions.ChunkedEncodingError: ("Connection broken: InvalidChunkLength(got length b'', 0 bytes read)", InvalidChunkLength(got length b'', 0 bytes read))
+
+2023-04-03T18:47:37.788924:
+Traceback (most recent call last):
+  File "C:\Users\lcisn\AppData\Local\Programs\Python\Python39\lib\site-packages\urllib3\response.py", line 700, in _update_chunk_length
+    self.chunk_left = int(line, 16)
+ValueError: invalid literal for int() with base 16: b''
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\lcisn\AppData\Local\Programs\Python\Python39\lib\site-packages\urllib3\response.py", line 441, in _error_catcher
+    yield
+  File "C:\Users\lcisn\AppData\Local\Programs\Python\Python39\lib\site-packages\urllib3\response.py", line 767, in read_chunked
+    self._update_chunk_length()
+  File "C:\Users\lcisn\AppData\Local\Programs\Python\Python39\lib\site-packages\urllib3\response.py", line 704, in _update_chunk_length
+    raise InvalidChunkLength(self, line)
+urllib3.exceptions.InvalidChunkLength: InvalidChunkLength(got length b'', 0 bytes read)
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\lcisn\AppData\Local\Programs\Python\Python39\lib\site-packages\requests\models.py", line 760, in generate
+    for chunk in self.raw.stream(chunk_size, decode_content=True):
+  File "C:\Users\lcisn\AppData\Local\Programs\Python\Python39\lib\site-packages\urllib3\response.py", line 575, in stream
+    for line in self.read_chunked(amt, decode_content=decode_content):
+  File "C:\Users\lcisn\AppData\Local\Programs\Python\Python39\lib\site-packages\urllib3\response.py", line 796, in read_chunked
+    self._original_response.close()
+  File "C:\Users\lcisn\AppData\Local\Programs\Python\Python39\lib\contextlib.py", line 135, in __exit__
+    self.gen.throw(type, value, traceback)
+  File "C:\Users\lcisn\AppData\Local\Programs\Python\Python39\lib\site-packages\urllib3\response.py", line 458, in _error_catcher
+    raise ProtocolError("Connection broken: %r" % e, e)
+urllib3.exceptions.ProtocolError: ("Connection broken: InvalidChunkLength(got length b'', 0 bytes read)", InvalidChunkLength(got length b'', 0 bytes read))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "c:\git\http-tunel\tunnel_local.py", line 161, in tunnel_to_forward
+    for text in r.iter_lines():
+  File "C:\Users\lcisn\AppData\Local\Programs\Python\Python39\lib\site-packages\requests\models.py", line 804, in iter_lines
+    for chunk in self.iter_content(chunk_size=chunk_size, decode_unicode=decode_unicode):
+  File "C:\Users\lcisn\AppData\Local\Programs\Python\Python39\lib\site-packages\requests\models.py", line 763, in generate
+    raise ChunkedEncodingError(e)
+requests.exceptions.ChunkedEncodingError: ("Connection broken: InvalidChunkLength(got length b'', 0 bytes read)", InvalidChunkLength(got length b'', 0 bytes read))
+
+2023-04-03T18:51:15.871202:
+Traceback (most recent call last):
+  File "C:\Users\lcisn\AppData\Local\Programs\Python\Python39\lib\site-packages\urllib3\response.py", line 700, in _update_chunk_length
+    self.chunk_left = int(line, 16)
+ValueError: invalid literal for int() with base 16: b''
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\lcisn\AppData\Local\Programs\Python\Python39\lib\site-packages\urllib3\response.py", line 441, in _error_catcher
+    yield
+  File "C:\Users\lcisn\AppData\Local\Programs\Python\Python39\lib\site-packages\urllib3\response.py", line 767, in read_chunked
+    self._update_chunk_length()
+  File "C:\Users\lcisn\AppData\Local\Programs\Python\Python39\lib\site-packages\urllib3\response.py", line 704, in _update_chunk_length
+    raise InvalidChunkLength(self, line)
+urllib3.exceptions.InvalidChunkLength: InvalidChunkLength(got length b'', 0 bytes read)
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\lcisn\AppData\Local\Programs\Python\Python39\lib\site-packages\requests\models.py", line 760, in generate
+    for chunk in self.raw.stream(chunk_size, decode_content=True):
+  File "C:\Users\lcisn\AppData\Local\Programs\Python\Python39\lib\site-packages\urllib3\response.py", line 575, in stream
+    for line in self.read_chunked(amt, decode_content=decode_content):
+  File "C:\Users\lcisn\AppData\Local\Programs\Python\Python39\lib\site-packages\urllib3\response.py", line 796, in read_chunked
+    self._original_response.close()
+  File "C:\Users\lcisn\AppData\Local\Programs\Python\Python39\lib\contextlib.py", line 135, in __exit__
+    self.gen.throw(type, value, traceback)
+  File "C:\Users\lcisn\AppData\Local\Programs\Python\Python39\lib\site-packages\urllib3\response.py", line 458, in _error_catcher
+    raise ProtocolError("Connection broken: %r" % e, e)
+urllib3.exceptions.ProtocolError: ("Connection broken: InvalidChunkLength(got length b'', 0 bytes read)", InvalidChunkLength(got length b'', 0 bytes read))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "c:\git\http-tunel\tunnel_local.py", line 161, in tunnel_to_forward
+    for text in r.iter_lines():
+  File "C:\Users\lcisn\AppData\Local\Programs\Python\Python39\lib\site-packages\requests\models.py", line 804, in iter_lines
+    for chunk in self.iter_content(chunk_size=chunk_size, decode_unicode=decode_unicode):
+  File "C:\Users\lcisn\AppData\Local\Programs\Python\Python39\lib\site-packages\requests\models.py", line 763, in generate
+    raise ChunkedEncodingError(e)
+requests.exceptions.ChunkedEncodingError: ("Connection broken: InvalidChunkLength(got length b'', 0 bytes read)", InvalidChunkLength(got length b'', 0 bytes read))
+
+2023-04-03T18:51:17.460069:
+Traceback (most recent call last):
+  File "C:\Users\lcisn\AppData\Local\Programs\Python\Python39\lib\site-packages\urllib3\response.py", line 700, in _update_chunk_length
+    self.chunk_left = int(line, 16)
+ValueError: invalid literal for int() with base 16: b''
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\lcisn\AppData\Local\Programs\Python\Python39\lib\site-packages\urllib3\response.py", line 441, in _error_catcher
+    yield
+  File "C:\Users\lcisn\AppData\Local\Programs\Python\Python39\lib\site-packages\urllib3\response.py", line 767, in read_chunked
+    self._update_chunk_length()
+  File "C:\Users\lcisn\AppData\Local\Programs\Python\Python39\lib\site-packages\urllib3\response.py", line 704, in _update_chunk_length
+    raise InvalidChunkLength(self, line)
+urllib3.exceptions.InvalidChunkLength: InvalidChunkLength(got length b'', 0 bytes read)
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\lcisn\AppData\Local\Programs\Python\Python39\lib\site-packages\requests\models.py", line 760, in generate
+    for chunk in self.raw.stream(chunk_size, decode_content=True):
+  File "C:\Users\lcisn\AppData\Local\Programs\Python\Python39\lib\site-packages\urllib3\response.py", line 575, in stream
+    for line in self.read_chunked(amt, decode_content=decode_content):
+  File "C:\Users\lcisn\AppData\Local\Programs\Python\Python39\lib\site-packages\urllib3\response.py", line 796, in read_chunked
+    self._original_response.close()
+  File "C:\Users\lcisn\AppData\Local\Programs\Python\Python39\lib\contextlib.py", line 135, in __exit__
+    self.gen.throw(type, value, traceback)
+  File "C:\Users\lcisn\AppData\Local\Programs\Python\Python39\lib\site-packages\urllib3\response.py", line 458, in _error_catcher
+    raise ProtocolError("Connection broken: %r" % e, e)
+urllib3.exceptions.ProtocolError: ("Connection broken: InvalidChunkLength(got length b'', 0 bytes read)", InvalidChunkLength(got length b'', 0 bytes read))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "c:\git\http-tunel\tunnel_local.py", line 161, in tunnel_to_forward
+    for text in r.iter_lines():
+  File "C:\Users\lcisn\AppData\Local\Programs\Python\Python39\lib\site-packages\requests\models.py", line 804, in iter_lines
+    for chunk in self.iter_content(chunk_size=chunk_size, decode_unicode=decode_unicode):
+  File "C:\Users\lcisn\AppData\Local\Programs\Python\Python39\lib\site-packages\requests\models.py", line 763, in generate
+    raise ChunkedEncodingError(e)
+requests.exceptions.ChunkedEncodingError: ("Connection broken: InvalidChunkLength(got length b'', 0 bytes read)", InvalidChunkLength(got length b'', 0 bytes read))
+
+2023-04-03T18:56:47.873385:
+Traceback (most recent call last):
+  File "C:\Users\lcisn\AppData\Local\Programs\Python\Python39\lib\site-packages\urllib3\response.py", line 700, in _update_chunk_length
+    self.chunk_left = int(line, 16)
+ValueError: invalid literal for int() with base 16: b''
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\lcisn\AppData\Local\Programs\Python\Python39\lib\site-packages\urllib3\response.py", line 441, in _error_catcher
+    yield
+  File "C:\Users\lcisn\AppData\Local\Programs\Python\Python39\lib\site-packages\urllib3\response.py", line 767, in read_chunked
+    self._update_chunk_length()
+  File "C:\Users\lcisn\AppData\Local\Programs\Python\Python39\lib\site-packages\urllib3\response.py", line 704, in _update_chunk_length
+    raise InvalidChunkLength(self, line)
+urllib3.exceptions.InvalidChunkLength: InvalidChunkLength(got length b'', 0 bytes read)
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\lcisn\AppData\Local\Programs\Python\Python39\lib\site-packages\requests\models.py", line 760, in generate
+    for chunk in self.raw.stream(chunk_size, decode_content=True):
+  File "C:\Users\lcisn\AppData\Local\Programs\Python\Python39\lib\site-packages\urllib3\response.py", line 575, in stream
+    for line in self.read_chunked(amt, decode_content=decode_content):
+  File "C:\Users\lcisn\AppData\Local\Programs\Python\Python39\lib\site-packages\urllib3\response.py", line 796, in read_chunked
+    self._original_response.close()
+  File "C:\Users\lcisn\AppData\Local\Programs\Python\Python39\lib\contextlib.py", line 135, in __exit__
+    self.gen.throw(type, value, traceback)
+  File "C:\Users\lcisn\AppData\Local\Programs\Python\Python39\lib\site-packages\urllib3\response.py", line 458, in _error_catcher
+    raise ProtocolError("Connection broken: %r" % e, e)
+urllib3.exceptions.ProtocolError: ("Connection broken: InvalidChunkLength(got length b'', 0 bytes read)", InvalidChunkLength(got length b'', 0 bytes read))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "c:\git\http-tunel\tunnel_local.py", line 163, in tunnel_to_forward
+    for text in r.iter_lines():
+  File "C:\Users\lcisn\AppData\Local\Programs\Python\Python39\lib\site-packages\requests\models.py", line 804, in iter_lines
+    for chunk in self.iter_content(chunk_size=chunk_size, decode_unicode=decode_unicode):
+  File "C:\Users\lcisn\AppData\Local\Programs\Python\Python39\lib\site-packages\requests\models.py", line 763, in generate
+    raise ChunkedEncodingError(e)
+requests.exceptions.ChunkedEncodingError: ("Connection broken: InvalidChunkLength(got length b'', 0 bytes read)", InvalidChunkLength(got length b'', 0 bytes read))
+
+2023-04-03T18:56:48.183839:
+Traceback (most recent call last):
+  File "C:\Users\lcisn\AppData\Local\Programs\Python\Python39\lib\site-packages\urllib3\response.py", line 700, in _update_chunk_length
+    self.chunk_left = int(line, 16)
+ValueError: invalid literal for int() with base 16: b''
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\lcisn\AppData\Local\Programs\Python\Python39\lib\site-packages\urllib3\response.py", line 441, in _error_catcher
+    yield
+  File "C:\Users\lcisn\AppData\Local\Programs\Python\Python39\lib\site-packages\urllib3\response.py", line 767, in read_chunked
+    self._update_chunk_length()
+  File "C:\Users\lcisn\AppData\Local\Programs\Python\Python39\lib\site-packages\urllib3\response.py", line 704, in _update_chunk_length
+    raise InvalidChunkLength(self, line)
+urllib3.exceptions.InvalidChunkLength: InvalidChunkLength(got length b'', 0 bytes read)
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\lcisn\AppData\Local\Programs\Python\Python39\lib\site-packages\requests\models.py", line 760, in generate
+    for chunk in self.raw.stream(chunk_size, decode_content=True):
+  File "C:\Users\lcisn\AppData\Local\Programs\Python\Python39\lib\site-packages\urllib3\response.py", line 575, in stream
+    for line in self.read_chunked(amt, decode_content=decode_content):
+  File "C:\Users\lcisn\AppData\Local\Programs\Python\Python39\lib\site-packages\urllib3\response.py", line 796, in read_chunked
+    self._original_response.close()
+  File "C:\Users\lcisn\AppData\Local\Programs\Python\Python39\lib\contextlib.py", line 135, in __exit__
+    self.gen.throw(type, value, traceback)
+  File "C:\Users\lcisn\AppData\Local\Programs\Python\Python39\lib\site-packages\urllib3\response.py", line 458, in _error_catcher
+    raise ProtocolError("Connection broken: %r" % e, e)
+urllib3.exceptions.ProtocolError: ("Connection broken: InvalidChunkLength(got length b'', 0 bytes read)", InvalidChunkLength(got length b'', 0 bytes read))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "c:\git\http-tunel\tunnel_local.py", line 163, in tunnel_to_forward
+    for text in r.iter_lines():
+  File "C:\Users\lcisn\AppData\Local\Programs\Python\Python39\lib\site-packages\requests\models.py", line 804, in iter_lines
+    for chunk in self.iter_content(chunk_size=chunk_size, decode_unicode=decode_unicode):
+  File "C:\Users\lcisn\AppData\Local\Programs\Python\Python39\lib\site-packages\requests\models.py", line 763, in generate
+    raise ChunkedEncodingError(e)
+requests.exceptions.ChunkedEncodingError: ("Connection broken: InvalidChunkLength(got length b'', 0 bytes read)", InvalidChunkLength(got length b'', 0 bytes read))
+
+2023-04-03T18:56:48.263402:
+Traceback (most recent call last):
+  File "C:\Users\lcisn\AppData\Local\Programs\Python\Python39\lib\site-packages\urllib3\response.py", line 700, in _update_chunk_length
+    self.chunk_left = int(line, 16)
+ValueError: invalid literal for int() with base 16: b''
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\lcisn\AppData\Local\Programs\Python\Python39\lib\site-packages\urllib3\response.py", line 441, in _error_catcher
+    yield
+  File "C:\Users\lcisn\AppData\Local\Programs\Python\Python39\lib\site-packages\urllib3\response.py", line 767, in read_chunked
+    self._update_chunk_length()
+  File "C:\Users\lcisn\AppData\Local\Programs\Python\Python39\lib\site-packages\urllib3\response.py", line 704, in _update_chunk_length
+    raise InvalidChunkLength(self, line)
+urllib3.exceptions.InvalidChunkLength: InvalidChunkLength(got length b'', 0 bytes read)
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\lcisn\AppData\Local\Programs\Python\Python39\lib\site-packages\requests\models.py", line 760, in generate
+    for chunk in self.raw.stream(chunk_size, decode_content=True):
+  File "C:\Users\lcisn\AppData\Local\Programs\Python\Python39\lib\site-packages\urllib3\response.py", line 575, in stream
+    for line in self.read_chunked(amt, decode_content=decode_content):
+  File "C:\Users\lcisn\AppData\Local\Programs\Python\Python39\lib\site-packages\urllib3\response.py", line 796, in read_chunked
+    self._original_response.close()
+  File "C:\Users\lcisn\AppData\Local\Programs\Python\Python39\lib\contextlib.py", line 135, in __exit__
+    self.gen.throw(type, value, traceback)
+  File "C:\Users\lcisn\AppData\Local\Programs\Python\Python39\lib\site-packages\urllib3\response.py", line 458, in _error_catcher
+    raise ProtocolError("Connection broken: %r" % e, e)
+urllib3.exceptions.ProtocolError: ("Connection broken: InvalidChunkLength(got length b'', 0 bytes read)", InvalidChunkLength(got length b'', 0 bytes read))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "c:\git\http-tunel\tunnel_local.py", line 163, in tunnel_to_forward
+    for text in r.iter_lines():
+  File "C:\Users\lcisn\AppData\Local\Programs\Python\Python39\lib\site-packages\requests\models.py", line 804, in iter_lines
+    for chunk in self.iter_content(chunk_size=chunk_size, decode_unicode=decode_unicode):
+  File "C:\Users\lcisn\AppData\Local\Programs\Python\Python39\lib\site-packages\requests\models.py", line 763, in generate
+    raise ChunkedEncodingError(e)
+requests.exceptions.ChunkedEncodingError: ("Connection broken: InvalidChunkLength(got length b'', 0 bytes read)", InvalidChunkLength(got length b'', 0 bytes read))
+
+2023-04-03T18:56:50.197072:
+Traceback (most recent call last):
+  File "C:\Users\lcisn\AppData\Local\Programs\Python\Python39\lib\site-packages\urllib3\response.py", line 700, in _update_chunk_length
+    self.chunk_left = int(line, 16)
+ValueError: invalid literal for int() with base 16: b''
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\lcisn\AppData\Local\Programs\Python\Python39\lib\site-packages\urllib3\response.py", line 441, in _error_catcher
+    yield
+  File "C:\Users\lcisn\AppData\Local\Programs\Python\Python39\lib\site-packages\urllib3\response.py", line 767, in read_chunked
+    self._update_chunk_length()
+  File "C:\Users\lcisn\AppData\Local\Programs\Python\Python39\lib\site-packages\urllib3\response.py", line 704, in _update_chunk_length
+    raise InvalidChunkLength(self, line)
+urllib3.exceptions.InvalidChunkLength: InvalidChunkLength(got length b'', 0 bytes read)
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\lcisn\AppData\Local\Programs\Python\Python39\lib\site-packages\requests\models.py", line 760, in generate
+    for chunk in self.raw.stream(chunk_size, decode_content=True):
+  File "C:\Users\lcisn\AppData\Local\Programs\Python\Python39\lib\site-packages\urllib3\response.py", line 575, in stream
+    for line in self.read_chunked(amt, decode_content=decode_content):
+  File "C:\Users\lcisn\AppData\Local\Programs\Python\Python39\lib\site-packages\urllib3\response.py", line 796, in read_chunked
+    self._original_response.close()
+  File "C:\Users\lcisn\AppData\Local\Programs\Python\Python39\lib\contextlib.py", line 135, in __exit__
+    self.gen.throw(type, value, traceback)
+  File "C:\Users\lcisn\AppData\Local\Programs\Python\Python39\lib\site-packages\urllib3\response.py", line 458, in _error_catcher
+    raise ProtocolError("Connection broken: %r" % e, e)
+urllib3.exceptions.ProtocolError: ("Connection broken: InvalidChunkLength(got length b'', 0 bytes read)", InvalidChunkLength(got length b'', 0 bytes read))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "c:\git\http-tunel\tunnel_local.py", line 163, in tunnel_to_forward
+    for text in r.iter_lines():
+  File "C:\Users\lcisn\AppData\Local\Programs\Python\Python39\lib\site-packages\requests\models.py", line 804, in iter_lines
+    for chunk in self.iter_content(chunk_size=chunk_size, decode_unicode=decode_unicode):
+  File "C:\Users\lcisn\AppData\Local\Programs\Python\Python39\lib\site-packages\requests\models.py", line 763, in generate
+    raise ChunkedEncodingError(e)
+requests.exceptions.ChunkedEncodingError: ("Connection broken: InvalidChunkLength(got length b'', 0 bytes read)", InvalidChunkLength(got length b'', 0 bytes read))
+
+2023-04-03T18:56:50.292807:
+Traceback (most recent call last):
+  File "C:\Users\lcisn\AppData\Local\Programs\Python\Python39\lib\site-packages\urllib3\response.py", line 700, in _update_chunk_length
+    self.chunk_left = int(line, 16)
+ValueError: invalid literal for int() with base 16: b''
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\lcisn\AppData\Local\Programs\Python\Python39\lib\site-packages\urllib3\response.py", line 441, in _error_catcher
+    yield
+  File "C:\Users\lcisn\AppData\Local\Programs\Python\Python39\lib\site-packages\urllib3\response.py", line 767, in read_chunked
+    self._update_chunk_length()
+  File "C:\Users\lcisn\AppData\Local\Programs\Python\Python39\lib\site-packages\urllib3\response.py", line 704, in _update_chunk_length
+    raise InvalidChunkLength(self, line)
+urllib3.exceptions.InvalidChunkLength: InvalidChunkLength(got length b'', 0 bytes read)
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\lcisn\AppData\Local\Programs\Python\Python39\lib\site-packages\requests\models.py", line 760, in generate
+    for chunk in self.raw.stream(chunk_size, decode_content=True):
+  File "C:\Users\lcisn\AppData\Local\Programs\Python\Python39\lib\site-packages\urllib3\response.py", line 575, in stream
+    for line in self.read_chunked(amt, decode_content=decode_content):
+  File "C:\Users\lcisn\AppData\Local\Programs\Python\Python39\lib\site-packages\urllib3\response.py", line 796, in read_chunked
+    self._original_response.close()
+  File "C:\Users\lcisn\AppData\Local\Programs\Python\Python39\lib\contextlib.py", line 135, in __exit__
+    self.gen.throw(type, value, traceback)
+  File "C:\Users\lcisn\AppData\Local\Programs\Python\Python39\lib\site-packages\urllib3\response.py", line 458, in _error_catcher
+    raise ProtocolError("Connection broken: %r" % e, e)
+urllib3.exceptions.ProtocolError: ("Connection broken: InvalidChunkLength(got length b'', 0 bytes read)", InvalidChunkLength(got length b'', 0 bytes read))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "c:\git\http-tunel\tunnel_local.py", line 163, in tunnel_to_forward
+    for text in r.iter_lines():
+  File "C:\Users\lcisn\AppData\Local\Programs\Python\Python39\lib\site-packages\requests\models.py", line 804, in iter_lines
+    for chunk in self.iter_content(chunk_size=chunk_size, decode_unicode=decode_unicode):
+  File "C:\Users\lcisn\AppData\Local\Programs\Python\Python39\lib\site-packages\requests\models.py", line 763, in generate
+    raise ChunkedEncodingError(e)
+requests.exceptions.ChunkedEncodingError: ("Connection broken: InvalidChunkLength(got length b'', 0 bytes read)", InvalidChunkLength(got length b'', 0 bytes read))
+
+2023-04-03T18:56:58.659953:
+Traceback (most recent call last):
+  File "C:\Users\lcisn\AppData\Local\Programs\Python\Python39\lib\site-packages\urllib3\response.py", line 700, in _update_chunk_length
+    self.chunk_left = int(line, 16)
+ValueError: invalid literal for int() with base 16: b''
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\lcisn\AppData\Local\Programs\Python\Python39\lib\site-packages\urllib3\response.py", line 441, in _error_catcher
+    yield
+  File "C:\Users\lcisn\AppData\Local\Programs\Python\Python39\lib\site-packages\urllib3\response.py", line 767, in read_chunked
+    self._update_chunk_length()
+  File "C:\Users\lcisn\AppData\Local\Programs\Python\Python39\lib\site-packages\urllib3\response.py", line 704, in _update_chunk_length
+    raise InvalidChunkLength(self, line)
+urllib3.exceptions.InvalidChunkLength: InvalidChunkLength(got length b'', 0 bytes read)
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\lcisn\AppData\Local\Programs\Python\Python39\lib\site-packages\requests\models.py", line 760, in generate
+    for chunk in self.raw.stream(chunk_size, decode_content=True):
+  File "C:\Users\lcisn\AppData\Local\Programs\Python\Python39\lib\site-packages\urllib3\response.py", line 575, in stream
+    for line in self.read_chunked(amt, decode_content=decode_content):
+  File "C:\Users\lcisn\AppData\Local\Programs\Python\Python39\lib\site-packages\urllib3\response.py", line 796, in read_chunked
+    self._original_response.close()
+  File "C:\Users\lcisn\AppData\Local\Programs\Python\Python39\lib\contextlib.py", line 135, in __exit__
+    self.gen.throw(type, value, traceback)
+  File "C:\Users\lcisn\AppData\Local\Programs\Python\Python39\lib\site-packages\urllib3\response.py", line 458, in _error_catcher
+    raise ProtocolError("Connection broken: %r" % e, e)
+urllib3.exceptions.ProtocolError: ("Connection broken: InvalidChunkLength(got length b'', 0 bytes read)", InvalidChunkLength(got length b'', 0 bytes read))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "c:\git\http-tunel\tunnel_local.py", line 163, in tunnel_to_forward
+    for text in r.iter_lines():
+  File "C:\Users\lcisn\AppData\Local\Programs\Python\Python39\lib\site-packages\requests\models.py", line 804, in iter_lines
+    for chunk in self.iter_content(chunk_size=chunk_size, decode_unicode=decode_unicode):
+  File "C:\Users\lcisn\AppData\Local\Programs\Python\Python39\lib\site-packages\requests\models.py", line 763, in generate
+    raise ChunkedEncodingError(e)
+requests.exceptions.ChunkedEncodingError: ("Connection broken: InvalidChunkLength(got length b'', 0 bytes read)", InvalidChunkLength(got length b'', 0 bytes read))
+
